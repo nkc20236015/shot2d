@@ -6,9 +6,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Vector3 dir = Vector2.zero;//移動方向を保存する変数
+
+    Animator anim;//アニメーターコンポーネントの情報を取得
+
     void Start()
     {
-        
+        //アニメーターコンポーネントの情報を保存
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,17 +30,20 @@ public class PlayerController : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x,-9f,9f);
         pos.y = Mathf.Clamp(pos.y,-5f,5f);
         transform.position = pos;
-        //if(y == 0)
-        //{
-        //    Anim.Play("Player");
-        //}
-        //else if(y == 1)
-        //{
-        //    Anim.Play("PlayerL"):
-        //}
-        //else if(y == -1)
-        //{
-        //    Anim.Play("PlayerR");
-        //}
+
+        //アニメーション設定
+        if (dir.y == 0)
+        {
+            //アニメーションクリップ【Player】
+            anim.Play("Player");
+        }
+        else if(dir.y == 1)
+        {
+            anim.Play("PlayerL");
+        }
+        else if(dir.y == -1)
+        {
+            anim.Play("PlayerR");
+        }
     }
 }
