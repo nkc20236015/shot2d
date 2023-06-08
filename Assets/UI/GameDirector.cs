@@ -9,7 +9,9 @@ public class GameDirector : MonoBehaviour
     int kyori;//距離を保存する変数
 
     public Image timeGauge;//タイムゲージを表示するUIオブジェクト   publicをつけるとアタッチできる
-    float lastTime;   //残り時間を保存する変数
+
+   public static float lastTime;   //残り時間を保存する変数
+
     void Start()
     {
         kyori = 0;

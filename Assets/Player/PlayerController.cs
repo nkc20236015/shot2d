@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector3 dir = Vector2.zero;//移動方向を保存する変数
+    Vector3 dir = Vector3.zero;//移動方向を保存する変数
 
     Animator anim;//アニメーターコンポーネントの情報を取得
 
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         dir.x = Input.GetAxis("Horizontal");
 
         transform.position += dir.normalized * speed * Time.deltaTime;//1フレームごとに計算
-
+        
         //画面内移動制限
         Vector3 pos = transform.position;
         pos.x = Mathf.Clamp(pos.x,-9f,9f);
